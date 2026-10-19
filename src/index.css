@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, 'Segoe UI', sans-serif;
+  --color-primary: #166354;
+  --color-primary-hover: #114d42;
+  --color-primary-active: #0d3b33;
+  --color-primary-soft: #e8f2ed;
+  --color-primary-foreground: #ffffff;
+  --color-background: #f7f8f5;
+  --color-surface: #ffffff;
+  --color-foreground: #182521;
+  --color-muted: #5b6b63;
+  --color-border: #dce3dc;
+  --color-success: #15803d;
+  --color-success-soft: #f0fdf4;
+  --color-warning: #92400e;
+  --color-warning-soft: #fffbeb;
+  --color-danger: #b91c1c;
+  --color-danger-soft: #fef2f2;
+  --color-info: #075985;
+  --color-info-soft: #f0f9ff;
+}
+
+@layer base {
+  :root {
+    font-family: var(--font-sans);
+    color: var(--color-foreground);
+    background-color: var(--color-background);
+    color-scheme: light;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100svh;
+    line-height: 1.5;
+  }
+
+  #root { min-height: 100svh; }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    color: var(--color-foreground);
+  }
+
+  h1 {
+    font-size: 2.25rem;
+    line-height: 1.2;
+    margin-block: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+
+  button, input, select, textarea { font: inherit; }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    color: var(--color-primary-active);
+    background-color: var(--color-primary-soft);
+  }
+}
