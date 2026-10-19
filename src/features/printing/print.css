@@ -1,0 +1,25 @@
+#order-print-root { display: none; }
+.order-receipt { box-sizing: border-box; width: 72mm; margin: 0 auto; padding: 3mm; background: white; color: black; font: 12px/1.4 ui-monospace, Consolas, monospace; overflow-wrap: anywhere; }
+.order-receipt header { text-align: center; }
+.order-receipt p, .order-receipt h2 { margin: 0 0 1.5mm; color: black; }
+.order-receipt h2 { font: bold 15px/1.3 ui-monospace, Consolas, monospace; }
+.order-receipt .receipt-brand { font-weight: bold; }
+.order-receipt .receipt-table { font-size: 18px; font-weight: bold; }
+.order-receipt .receipt-notice { margin: 3mm 0; padding: 2mm 0; border-top: 1px dashed black; border-bottom: 1px dashed black; font-size: 10px; text-align: center; }
+.order-receipt ul { list-style: none; margin: 0; padding: 0; }
+.order-receipt li { padding: 2mm 0; border-bottom: 1px dashed black; break-inside: avoid; }
+.order-receipt .receipt-row { display: flex; justify-content: space-between; gap: 2mm; }
+.order-receipt .receipt-row > :last-child:not(:first-child) { flex-shrink: 0; }
+.order-receipt .receipt-extra { margin-top: 1mm; padding-left: 2mm; font-size: 11px; }
+.order-receipt .receipt-notes, .order-receipt .receipt-pending { margin-top: 1mm; font-weight: bold; white-space: pre-wrap; }
+.order-receipt .receipt-totals { margin: 3mm 0; break-inside: avoid; }
+.order-receipt .receipt-total { margin-top: 2mm; font-size: 15px; font-weight: bold; }
+.order-receipt footer { margin-top: 4mm; text-align: center; font-size: 10px; }
+@media print {
+  @page order-ticket { size: 80mm 297mm; margin: 4mm; }
+  html:has(#order-print-root), body:has(#order-print-root) { min-width: 0 !important; min-height: 0 !important; background: white !important; overflow: visible !important; }
+  body:has(#order-print-root) > :not(#order-print-root) { display: none !important; }
+  #order-print-root { display: block !important; page: order-ticket; }
+  body:has(#order-print-root) dialog, body:has(#order-print-root) dialog::backdrop { display: none !important; }
+  #order-print-root .order-receipt { width: 100%; max-width: 72mm; padding: 0; }
+}
